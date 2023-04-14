@@ -1,0 +1,15 @@
+
+services:
+  backend:
+    build: .
+    
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - backend
+
+    ports:
+      - 5000:5000
+  
