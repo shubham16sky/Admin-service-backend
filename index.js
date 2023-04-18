@@ -84,7 +84,7 @@ app.post("/user/register",async(req,res)=>{
 
 //List all users
 app.get("/user/list",async(req,res)=>{
-  const user_list = await User.find({},'-password');
+  const user_list = await User.find({},'firstName lastName email -_id');
   return res.status(200).send({"users":user_list});
 })
 
