@@ -88,6 +88,12 @@ app.get("/user/list",async(req,res)=>{
   return res.status(200).send({"users":user_list});
 })
 
+//List email of users
+app.get("/user/email",async(req,res)=>{
+	const email_list = await User.find({},'email -_id');
+	return res.status(200).send({"emails":email_list});
+})
+
 
 //Delete a user 
 app.delete('/user/:id', async (req, res) => {
